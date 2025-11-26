@@ -1,27 +1,43 @@
-``` html 
+<h2 class="mb-4">Mis Tareas</h2>
 
-<% totalTasks %> 
-Total Tareas
+<!-- ESTADÍSTICAS -->
+<div class="stats mb-4">
+    <div class="stat-card">
+        <div class="stat-number"><%= totalTasks %></div>
+        <div class="stat-label">Total de Tareas</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-number"><%= completedTasks %></div>
+        <div class="stat-label">Completadas</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-number"><%= pendingTasks %></div>
+        <div class="stat-label">Pendientes</div>
+    </div>
+</div>
 
-<% completedTasks %> 
-Total completadas
-
-<% totalTasks - completedTasks %> 
-Tareas pendientes
-
-Mis Tareas
-Nueva Tarea
-+ Agregar Tarea
-
-Lista de Tareas
-
-<% tasks.forEach(task => { %>
-<%= task.title %>
-<%= task.completed ? 'Completada' : 'Pendiente' %>
-<% }) %>
-
+<!-- LISTA DE TAREAS -->
+<h3 class="mb-3">Lista de Tareas</h3>
 <% if (tasks.length === 0) { %>
-No hay tareas disponibles.
+    <p>No hay tareas disponibles.</p>
+<% } else { %>
+    <ul class="task-list">
+        <% tasks.forEach(task => { %>
+            <li class="task-item <%= task.completed ? 'completed' : '' %>">
+                <span><%= task.title %></span>
+                <button class="btn <%= task.completed ? 'btn-danger' : 'btn-success' %>">
+                    <%= task.completed ? '↺ Reabrir' : '✓ Completar' %>
+                </button>
+            </li>
+        <% }) %>
+    </ul>
 <% } %>
 
-```
+<!-- FORMULARIO NUEVA TAREA -->
+<h3 class="mt-4 mb-3">Agregar Nueva Tarea</h3>
+<form id="taskForm" class="mb-4">
+    <div class="form-group">
+        <input type="text" id="taskInput" placeholder="Título de la tarea" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-primary">+ Agregar Tarea</button>
+</form>

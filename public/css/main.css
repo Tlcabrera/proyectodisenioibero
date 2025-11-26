@@ -257,3 +257,18 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.task-item.completed {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.notification {
+  font-weight: bold;
+}
