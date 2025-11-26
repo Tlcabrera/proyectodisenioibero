@@ -19,6 +19,17 @@ app.get('/', (req, res) => {
     res.send('Hello World!');
 });
 
+/*app.get('/stop', (req, res) => {
+  res.render('stop', { titulo: 'Stop' });
+});
+
+app.get('/contactenos', (req, res) => {
+  res.render('form');
+});*/
+app.get("/home", (req, res) => res.render("home"));
+app.get("/portafolio", (req, res) => res.render("portafolio"));
+app.get("/contact", (req, res) => res.render("contact"));
+
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
