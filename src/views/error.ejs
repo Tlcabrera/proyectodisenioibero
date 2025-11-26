@@ -1,0 +1,12 @@
+``` html 
+
+<% = error.status || 500 %>
+<%=title%>
+<%=message%>
+Volver al Inicio
+
+<% if (error.stack) { %>
+    <%= error.stack %>
+<% } %>
+
+```

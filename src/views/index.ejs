@@ -1,0 +1,27 @@
+``` html 
+
+<% totalTasks %> 
+Total Tareas
+
+<% completedTasks %> 
+Total completadas
+
+<% totalTasks - completedTasks %> 
+Tareas pendientes
+
+Mis Tareas
+Nueva Tarea
++ Agregar Tarea
+
+Lista de Tareas
+
+<% tasks.forEach(task => { %>
+<%= task.title %>
+<%= task.completed ? 'Completada' : 'Pendiente' %>
+<% }) %>
+
+<% if (tasks.length === 0) { %>
+No hay tareas disponibles.
+<% } %>
+
+```
